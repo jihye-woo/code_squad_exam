@@ -17,7 +17,6 @@
         * User Input Error
         * Integer Boundary Error
 2. 주어진 단어를 L이면 주어진 숫자 갯수만큼 왼쪽으로, R이면 오른쪽으로 밀어낸다.
-    - charAt()
     - subString()
     - Exception Handling
         * IndexOutOfBoundsException

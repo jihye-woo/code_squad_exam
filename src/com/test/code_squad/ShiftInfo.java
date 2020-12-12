@@ -14,7 +14,12 @@ public class ShiftInfo {
         this.direction = Direction.is(direction);
     }
 
-    public void purifiedInput(int maxLength) {
+    public ShiftInfo(int N, String direction, int maxLength) {
+        this(N, direction);
+        purifiedInput(maxLength);
+    }
+
+    private void purifiedInput(int maxLength) {
         if (N < 0) {
             setN(-N);
             setDirection(Direction.directionSwitcher(direction));

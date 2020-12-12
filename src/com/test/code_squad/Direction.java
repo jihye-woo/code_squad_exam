@@ -22,7 +22,7 @@ public enum Direction {
             case "L":
                 return Direction.Left;
             default:
-                throw new IllegalStateException("Unexpected direction value: " + direction);
+                throw new IllegalArgumentException("Unexpected direction value: " + direction);
         }
     }
 

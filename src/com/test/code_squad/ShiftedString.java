@@ -8,13 +8,14 @@ public class ShiftedString {
         this.word = word;
     }
 
+    public String getWord() { return word; }
+
     public String shifting(int N, String direction) {
-        ShiftInfo info = new ShiftInfo(N, direction);
-        info.purifiedInput(word.length());
+        ShiftInfo info = new ShiftInfo(N, direction, word.length());
         return shiftAt(info.getN(), info.getDirection());
     }
 
-    public String shiftAt(int N, Direction info) {
+    private String shiftAt(int N, Direction info) {
         if (N == 0) {
             return word;
         }

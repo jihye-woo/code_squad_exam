@@ -15,7 +15,8 @@ public class ShiftedString {
     public void shifting(int N, Direction direction) {
         // get N from commend c / get direction from isRight
         ShiftInfo info = new ShiftInfo(N, direction, word.length());
-        return shiftAt(info.getN(), info.getDirection());
+        String shifted = shiftAt(info.getN(), info.getDirection());
+        setWord(shifted);
     }
 
     private String shiftAt(int N, Direction info) {
@@ -25,7 +26,6 @@ public class ShiftedString {
         }
         return word.substring(N) + word.substring(0, N);
     }
-
 
 }
 

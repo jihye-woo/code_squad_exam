@@ -46,15 +46,12 @@ public class Cube {
 
     // print cube
     public void print() {
-        System.out.println(cube.toString());
+        Stream.of(cube)
+                .flatMap(Stream::of)
+                .forEach(System.out::println);
+        System.out.println();
     }
 
-    @Override
-    public String toString() {
-        return "Cube{" +
-                "cube=" + Arrays.toString(cube) +
-                '}';
-    }
 
     @Override
     public boolean equals(Object o) {

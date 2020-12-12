@@ -21,13 +21,13 @@ public enum Commend {
 
     static Commend is(String commend) {
         switch (commend) {
-            case "U":
+            case "U": case "U'":
                 return U;
-            case "R":
+            case "R": case "R'":
                 return R;
-            case "L":
+            case "L": case "L'":
                 return L;
-            case "B":
+            case "B": case "B'":
                 return B;
             default:
                 throw new IllegalArgumentException("Unexpected commend value: " + commend);

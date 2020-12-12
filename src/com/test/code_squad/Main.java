@@ -1,32 +1,43 @@
 package com.test.code_squad;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.InputMismatchException;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        char[][] cubeInfo = {{'R', 'R', 'W'}, {'G', 'C', 'W'}, {'G', 'B', 'B'}};
+        Cube cube = new Cube(cubeInfo);
+        cube.print();
+
         boolean try_again = true;
         while (try_again) {
             try {
-                // 1. getting inputs
-                // String : word, int : N, String : direction
-                String[] inputs = br.readLine().trim().split(" ");
-                String word = inputs[0];
-                int N = Integer.parseInt(inputs[1]);
-                String direction = inputs[2];
+                // 1. print the cube status
 
-                // 2. shifting the word
-                ShiftedString shifted = new ShiftedString(word);
-                System.out.println(shifted.shifting(N, direction));
+                // 2. get the commend input from the user
+                System.out.print("CUBE > ");
 
-                // 3-1. finish
-                try_again = false;
+                // 3. split the one line of commend
+                List<String> commends = ShiftCommends.splitCommends(br.readLine());
+
+                for(String commend : commends){
+                    if(commend.equals("Q")){
+                        // 4-1. finish the program
+                        try_again = false;
+                        System.out.println("Bye~");
+                        break;
+                    }
+                    // 4-2. execute the commend
+                    boolean isRight = commend.contains("'");
+                    System.out.println(commend);
+                    cube.shift(Commend.is(commend), Direction.is(isRight));
+                }
+
             } catch (Exception e) {
-                // 3-2. if error occurred, try again
+                // 5. if error occurred, try again
                 e.printStackTrace();
             }
         }

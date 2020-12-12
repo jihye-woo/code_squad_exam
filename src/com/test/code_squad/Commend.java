@@ -9,8 +9,6 @@ public enum Commend {
 
     private int sign;
 
-    private Direction direction;
-
     static {
         U.x1 = 0; U.x2 = 0; U.y1 = 0; U.y2 = 1; U.z1 = 0; U.z2 = 2;
         R.x1 = 0; R.x2 = 2; R.y1 = 1; R.y2 = 2; R.z1 = 2; R.z2 = 2;

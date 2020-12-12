@@ -6,15 +6,15 @@ public class ShiftInfo {
     private int N;
     private Direction direction;
 
-    public ShiftInfo(int N, String direction) {
+    public ShiftInfo(int N, Direction direction) {
         // check the boundary of N
         if (N < -100 || 100 <= N)
             throw new InputMismatchException("Input N is out of bounary, please enter between -100 <= N < 100 !");
         this.N = N;
-        this.direction = Direction.is(direction);
+        this.direction = direction;
     }
 
-    public ShiftInfo(int N, String direction, int maxLength) {
+    public ShiftInfo(int N, Direction direction, int maxLength) {
         this(N, direction);
         purifiedInput(maxLength);
     }

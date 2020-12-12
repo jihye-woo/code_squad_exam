@@ -1,28 +1,30 @@
 package com.test.code_squad;
 
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class Cube {
 
     private char[][] cube;
-
-    private final int CUBE_LENGTH = 3;
 
     public Cube(char[][] cube) {
         this.cube = cube;
     }
 
     // shift starting point
-    public void shift(Commend c, String direction){
+    public void shift(Commend c, Direction direction){
+
         // get target word and create shiftedString instance
         ShiftedString shiftedString = new ShiftedString(getWord(c));
-        // get N from commend c / get direction from isLeft
 
+        // c.getSign() return N
         // create shiftInfo instance
         shiftedString.shifting(c.getSign(), direction);
 
         // update cube info
         update(shiftedString.getWord(), c);
+
+        print();
     }
 
     // create target word

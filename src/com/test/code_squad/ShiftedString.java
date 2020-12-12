@@ -10,16 +10,16 @@ public class ShiftedString {
 
     public String getWord() { return word; }
 
-    public String shifting(int N, String direction) {
+    private void setWord(String word) { this.word = word;}
+
+    public void shifting(int N, Direction direction) {
+        // get N from commend c / get direction from isRight
         ShiftInfo info = new ShiftInfo(N, direction, word.length());
         return shiftAt(info.getN(), info.getDirection());
     }
 
     private String shiftAt(int N, Direction info) {
-        if (N == 0) {
-            return word;
-        }
-
+        if (N == 0) { return word; }
         if (info.equals(Direction.Right)) {
             N = word.length() - N;
         }

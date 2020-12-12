@@ -11,19 +11,8 @@ public enum Direction {
         }
     }
 
-    static Direction is(String direction) {
-        switch (direction) {
-            case "r":
-                return Direction.Right;
-            case "R":
-                return Direction.Right;
-            case "l":
-                return Direction.Left;
-            case "L":
-                return Direction.Left;
-            default:
-                throw new IllegalArgumentException("Unexpected direction value: " + direction);
-        }
+    static Direction is(boolean isRight){
+        return (isRight) ? Direction.Right : Direction.Left;
     }
 
 }

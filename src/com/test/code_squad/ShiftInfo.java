@@ -17,12 +17,12 @@ public class ShiftInfo {
     }
 
     public ShiftInfo(int N, String commend) {
+        this.commend = Commend.is(commend);
+        this.direction = Direction.is(commend);
         // check the boundary of N
         if (N < -100 || 100 <= N)
             throw new InputMismatchException("Input N is out of bounary, please enter between -100 <= N < 100 !");
-        this.N = N;
-        this.commend = Commend.is(commend);
-        this.direction = Direction.is(commend);
+        this.N = N * this.commend.getSign();
         purifiedInput();
     }
 

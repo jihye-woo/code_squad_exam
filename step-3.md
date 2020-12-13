@@ -130,7 +130,7 @@ CUBE> Q
     L = (8,10,15,13)  (9,12,14,11)  (0,16,40,39) (3,19,43,36) (5,21,45,34)
     R = (24,26,31,29) (25,28,30,27) (2,37,42,18) (4,35,44,20) (7,32,47,23) 
     U = (0,2,7,5)     (1,4,6,3)     (8,32,24,16) (9,33,25,17) (10,34,26,18)
-    D = (0,2,7,5)     (1,4,6,3)     (8,32,24,16) (9,33,25,17) (10,34,26,18)
+    D = (40,42,47,45) (41,44,46,43) (21,29,37,13)(22,30,38,14)(23,31,39,15)
 
 ex) 만약 F가 실행되면 (16,18,23,21) → (21,16,18,23) // 16은 이전 18자리에, 18은 이전 23자리에, ...
                     (17,20,22,19) → (19,17,20,22)
@@ -156,18 +156,13 @@ ex) 만약 F가 실행되면 (16,18,23,21) → (21,16,18,23) // 16은 이전 18�
     - ✔ Commend enum field 변경
         - sign 삭제
         - sequence 추가(Commend 별 영향 범위를 나타내는 정보)
-        - direction 정보 추가
 
 2. RubiksCube에서 Commend에 따른 shifting action 수행
     - ✔ Cube.java 사용 X → RubiksCube.java 생성
-    - ✔ Shifting 정보에 대한 권한 일원화
-        - ShiftInfo.java 사용 X → Commend.java에 추가
-        - Commend
     - RubiksCube.shifting(Commend c)에서 shift action 수행 후 정보 업데이트
-    - ✔ ShiftString.java 사용 X
-        - RubiksCube.shifting() 혹은 다른 메소드에서 N만큼 direction 방향으로 index shifting
-        - String 화 할 필요 없음
-        - swap 기능과 유사
+    - ✔ ShiftString.java 사용
+        - RubiksCube.shifting()
+        - String 화 하지 않으면, |N| > 1일 때 핸들이 어려워질 수도 있을 듯
         
     
 

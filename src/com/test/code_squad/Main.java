@@ -21,7 +21,7 @@ public class Main {
                 System.out.print("CUBE > ");
 
                 // 3. split the one line of commend
-                List<String> commends = ShiftCommends.splitCommends(br.readLine());
+                List<String> commends = CommendUtils.splitCommends(br.readLine());
 
                 for(String commend : commends){
                     if(commend.equals("Q")){

@@ -5,9 +5,9 @@ import java.util.regex.MatchResult;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class ShiftCommends {
+public class CommendUtils {
 
-    private static final String COMMEND_PATTERN = "([URLB][']?|[Q])";
+    private static final String COMMEND_PATTERN = "([URLBFD][']?|[Q])";
     private static Pattern p = Pattern.compile(COMMEND_PATTERN);
 
     public static List<String> splitCommends(String commends){

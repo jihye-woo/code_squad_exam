@@ -8,8 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        char[][] cubeInfo = {{'R', 'R', 'W'}, {'G', 'C', 'W'}, {'G', 'B', 'B'}};
-        Cube cube = new Cube(cubeInfo);
+        RubiksCube cube = new RubiksCube().cubeInitializer();
         cube.print();
 
         boolean try_again = true;
@@ -31,9 +30,8 @@ public class Main {
                         break;
                     }
                     // 4-2. execute the commend
-                    boolean isRight = commend.contains("'");
                     System.out.println(commend);
-                    cube.shift(Commend.is(commend), Direction.is(isRight));
+                    cube.shifting(commend);
                 }
 
             } catch (Exception e) {

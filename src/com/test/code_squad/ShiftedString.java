@@ -12,12 +12,18 @@ public class ShiftedString {
 
     private void setWord(String word) { this.word = word;}
 
-    public void shifting(int N, Direction direction) {
-        // get N from commend c / get direction from isRight
-        ShiftInfo info = new ShiftInfo(N, direction, word.length());
+//    public void shifting(int N, Direction direction) {
+//        // get N from commend c / get direction from isRight
+//        ShiftInfo info = new ShiftInfo(N, direction, word.length());
+//        String shifted = shiftAt(info.getN(), info.getDirection());
+//        setWord(shifted);
+//    }
+
+    public void shifting(ShiftInfo info) {
         String shifted = shiftAt(info.getN(), info.getDirection());
         setWord(shifted);
     }
+
 
     private String shiftAt(int N, Direction info) {
         if (N == 0) { return word; }

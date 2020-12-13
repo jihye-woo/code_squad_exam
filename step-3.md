@@ -147,6 +147,30 @@ ex) 만약 F가 실행되면 (16,18,23,21) → (21,16,18,23) // 16은 이전 18�
 
 ### 3단계 : Pseudo Code
 
+1. Commend 명령
+    - user input을 Commend 타입 명령으로 해석
+    - ✔ ShiftCommends.java를 CommendUtils.java로 수정
+    - ✔ Commend type에 F, B 추가
+        - CommendUtils의 COMMEND_PATTERN에 추가
+        - Commend enum에 추가
+    - ✔ Commend enum field 변경
+        - sign 삭제
+        - sequence 추가(Commend 별 영향 범위를 나타내는 정보)
+        - direction 정보 추가
+
+2. RubiksCube에서 Commend에 따른 shifting action 수행
+    - ✔ Cube.java 사용 X → RubiksCube.java 생성
+    - ✔ Shifting 정보에 대한 권한 일원화
+        - ShiftInfo.java 사용 X → Commend.java에 추가
+        - Commend
+    - RubiksCube.shifting(Commend c)에서 shift action 수행 후 정보 업데이트
+    - ✔ ShiftString.java 사용 X
+        - RubiksCube.shifting() 혹은 다른 메소드에서 N만큼 direction 방향으로 index shifting
+        - String 화 할 필요 없음
+        - swap 기능과 유사
+        
+    
+
 
 #### 참고 링크
 - [RubiksCube.java](http://symbolaris.com/orbital/Orbital-doc/examples/Algorithms/RubiksCube.java)

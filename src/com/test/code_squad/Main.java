@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        RubiksCube cube = new RubiksCube().cubeInitializer();
+        RubiksCube cube = new RubiksCube(0);
         cube.print();
 
         boolean try_again = true;
@@ -17,6 +17,8 @@ public class Main {
                 // 1. print the cube status
 
                 // 2. get the commend input from the user
+                System.out.println("Commend List : U  L  F  R  B  D");
+                System.out.println("               U' L' F' R' B' D'");
                 System.out.print("CUBE > ");
 
                 // 3. split the one line of commend

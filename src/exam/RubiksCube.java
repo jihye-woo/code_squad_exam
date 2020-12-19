@@ -1,5 +1,8 @@
 package exam;
 
+import exam.shift.ShiftInfo;
+import exam.shift.ShiftedString;
+
 public class RubiksCube {
 
     private char[] cubeInfo;

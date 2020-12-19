@@ -1,4 +1,4 @@
-package exam;
+package exam.shift;
 
 import exam.command.Direction;
 

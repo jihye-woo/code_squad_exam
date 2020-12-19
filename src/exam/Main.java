@@ -1,5 +1,6 @@
 package exam;
 
+import exam.RubiksCube;
 import exam.utils.CommandUtils;
 import exam.utils.PrintUtils;
 
@@ -22,7 +23,6 @@ public class Main {
         boolean try_again = true;
         while (try_again) {
             try {
-
                 // 2. get the command input from the user
                 PrintUtils.commandPrompt();
 
@@ -41,7 +41,6 @@ public class Main {
                     }
                     else if (command.equals("Q")) {
                         // 4-2. finish the program
-                        PrintUtils.elapsedTime(startTime);
                         try_again = false;
                         break;
                     } else{
@@ -55,5 +54,7 @@ public class Main {
                 e.printStackTrace();
             }
         }
+
+
     }
 }

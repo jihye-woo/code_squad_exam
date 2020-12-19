@@ -7,25 +7,24 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
 
-
-
-
 public class Main {
 
     public static void main(String[] args) {
+
+        // 0. set the start time
+        long startTime = System.currentTimeMillis();
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        // 1. create and print the cube status
         RubiksCube cube = new RubiksCube();
         cube.print();
 
         boolean try_again = true;
         while (try_again) {
             try {
+
                 // 2. get the command input from the user
-                System.out.println("command List : U  L  F  R  B  D");
-                System.out.println("               U' L' F' R' B' D'");
-                System.out.println("               RANDOM (Random shuffling)");
-                System.out.println(" Not Case Sensitive ");
-                System.out.print("CUBE > ");
+                PrintUtils.commandPrompt();
 
                 // 3. split the one line of command
                 List<String> commands = CommandUtils.splitCommands(br.readLine());
@@ -42,6 +41,7 @@ public class Main {
                     }
                     else if (command.equals("Q")) {
                         // 4-2. finish the program
+                        PrintUtils.elapsedTime(startTime);
                         try_again = false;
                         break;
                     } else{

@@ -1,14 +1,20 @@
-package com.test.code_squad;
+package exam;
+
+import exam.utils.CommandUtils;
+import exam.utils.PrintUtils;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
 
+
+
+
 public class Main {
 
     public static void main(String[] args) {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        RubiksCube cube = new RubiksCube(0);
+        RubiksCube cube = new RubiksCube();
         cube.print();
 
         boolean try_again = true;
@@ -22,7 +28,7 @@ public class Main {
                 System.out.print("CUBE > ");
 
                 // 3. split the one line of commend
-                List<String> commends = CommendUtils.splitCommends(br.readLine());
+                List<String> commends = CommandUtils.splitCommands(br.readLine());
 
                 for(String commend : commends){
                     if(commend.equals("Q")){
@@ -33,7 +39,7 @@ public class Main {
                     }
                     // 4-2. execute the commend
                     System.out.println(commend);
-                    cube.shifting(commend);
+                    cube.shiftingAndPrint(commend);
                 }
 
             } catch (Exception e) {

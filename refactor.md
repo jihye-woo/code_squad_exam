@@ -21,7 +21,8 @@
 ### 출력
    - Command 목록 출력
         - 하드 코딩 대신 enum.values()
-   - StringBuilder 활용
+   - ~~StringBuilder 활용~~
+   - 가독성을 위해 format 사용 [[StringBuilder와 format](https://stackoverflow.com/questions/44117788/performance-between-string-format-and-stringbuilder)]
 
 ### 클린 코드
    - package 분배

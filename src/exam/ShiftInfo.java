@@ -1,4 +1,7 @@
-package com.test.code_squad;
+package exam;
+
+import exam.command.Command;
+import exam.command.Direction;
 
 import java.util.InputMismatchException;
 
@@ -8,21 +11,21 @@ public class ShiftInfo {
 
     private Direction direction;
 
-    private Commend commend;
+    private Command command;
 
     private final int MAX_LENGTH = 3;
 
-    public ShiftInfo(String commend) {
-        this(1, commend);
+    public ShiftInfo(String command) {
+        this(1, command);
     }
 
-    public ShiftInfo(int N, String commend) {
-        this.commend = Commend.is(commend);
-        this.direction = Direction.is(commend);
+    public ShiftInfo(int N, String command) {
+        this.command = Command.is(command);
+        this.direction = Direction.is(command);
         // check the boundary of N
         if (N < -100 || 100 <= N)
             throw new InputMismatchException("Input N is out of bounary, please enter between -100 <= N < 100 !");
-        this.N = N * this.commend.getSign();
+        this.N = N * this.command.getSign();
         purifiedInput();
     }
 
@@ -53,5 +56,5 @@ public class ShiftInfo {
         this.direction = direction;
     }
 
-    public int[][] getSequences(){ return commend.getSequences(); }
+    public int[][] getSequences(){ return command.getSequences(); }
 }

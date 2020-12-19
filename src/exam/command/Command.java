@@ -1,11 +1,15 @@
-package com.test.code_squad;
+package exam.command;
 
-public enum Commend {
+public enum Command {
     U, R, L, B, F, D;
 
     private int[][] sequences;
 
-    private int sign = 1;
+    private int sign;
+
+    Command() {
+        sign = 1;
+    }
 
     static {
         U.sequences = new int[][] {{0,2,7,5},       {1,4,6,3},      {8,16,24,32},   {9,17,25,33},   {10,18,26,34}};
@@ -18,8 +22,8 @@ public enum Commend {
         U.sign = -1;
     }
 
-    static Commend is(String commend) {
-        switch (commend) {
+    public static Command is(String command) {
+        switch (command) {
             case "U": case "U'":
                 return U;
             case "R": case "R'":
@@ -33,7 +37,7 @@ public enum Commend {
             case "D": case "D'":
                 return D;
             default:
-                throw new IllegalArgumentException("Unexpected commend value: " + commend);
+                throw new IllegalArgumentException("Unexpected command value: " + command);
         }
     }
 

@@ -6,7 +6,7 @@
  
  
 ### 코딩 요구사항
- - [ ] 단계별로 구현한 코드의 동작 방식을 README.md에 정리
- - [ ] 단계별로 각각 step-1, step-2, step-3 라는 이름의 브랜치 작성
- - [ ] 커밋 시점과 단위, 커밋 메세지 고려하여 작성 [[참고](https://meetup.toast.com/posts/106)]
+ - [X] 단계별로 구현한 코드의 동작 방식을 README.md에 정리
+ - [X] 단계별로 각각 step-1, step-2, step-3 라는 이름의 브랜치 작성
+ - [X] 커밋 시점과 단위, 커밋 메세지 고려하여 작성 [[참고](https://meetup.toast.com/posts/106)]
 

@@ -74,12 +74,12 @@ CUBE> Q
         - 6종류 색깔 이외의 char은 exception 처리
         
 2. 새로운 명령 등장
-    - main()에서 COMMEND_PATTERN과 splitCommends() 변경
+    - main()에서 command_PATTERN과 splitcommands() 변경
     - 숫자 입력
         👉 숫자 없을 시, N = 1
         👉 숫자 있을 시, N = 입력받은 숫자
     - F, B
-        👉 기존의 shift 방식과 다르기 때문에 Commend enum 요소들과 어떻게 묶을 수 있을지 고민해야 함
+        👉 기존의 shift 방식과 다르기 때문에 command enum 요소들과 어떻게 묶을 수 있을지 고민해야 함
         👉 앞 면이 F일 때 왼쪽 면은 L', 오른쪽 면은 L, ... 
     
 3. 사용자 입력(User Input)
@@ -107,21 +107,21 @@ CUBE> Q
                      +----------+
 
 
-< Commend > 
+< command > 
     F  →    f면 시계 방향       word 1 R
     F' →    f면 반시계 방향      word 1 L
     B  →    b면 시계 방향       word 1 R
     B' →    b면 반시계 방향      word 1 L
     L  →    l면 시계 방향       word 1 R
-    L' →    l면 반시계 방향      word 1 L             [ 규칙성 A ] Commend 일 시에는 word 1 R
-    R  →    r면 시계 방향       word 1 R                         Commend'일 시에는 word 1 L
+    L' →    l면 반시계 방향      word 1 L             [ 규칙성 A ] command 일 시에는 word 1 R
+    R  →    r면 시계 방향       word 1 R                         command'일 시에는 word 1 L
     R' →    r면 반시계 방향      word 1 L
     U  →    u면 시계 방향       word 1 R
     U' →    u면 반시계 방향      word 1 L
     D  →    d면 시계 방향       word 1 R
     D' →    d면 반시계 방향      word 1 L
 
-< Commend 영향 범위 > 
+< command 영향 범위 > 
 ⁕ 네 개의 숫자로 묶인 하나의 집합을 sequence라고 가정. 예를 들어 (16,18,23,21)는 하나의 sequence.
 
             기준 면       기준 면        옆 면1       옆 면2       옆 면3
@@ -134,32 +134,32 @@ CUBE> Q
 
 ex) 만약 F가 실행되면 (16,18,23,21) → (21,16,18,23) // 16은 이전 18자리에, 18은 이전 23자리에, ...
                     (17,20,22,19) → (19,17,20,22)
-                    [ 규칙성 B ] 결국 Commend 영향 범위 내의 모든 sequence를 'sequence 1 R' 해준 결과와 같다
+                    [ 규칙성 B ] 결국 command 영향 범위 내의 모든 sequence를 'sequence 1 R' 해준 결과와 같다
                     +----------+        +----------+
                     | 16 17 18 |        | 21 19 16 |
                     | 19 f  20 |   →→   | 22 f  17 |  
                     | 21 22 23 |        | 23 20 18 |
                     +----------+        +----------+
 
-        ∴ 각 Commend 실행 시, [ 규칙성 B ] 와 같이 각 Commend의 영향 범위 안에 있는 모든 sequence를,
+        ∴ 각 command 실행 시, [ 규칙성 B ] 와 같이 각 command의 영향 범위 안에 있는 모든 sequence를,
                             [ 규칙성 A ] 에 맞게 수행해주어야 루빅스 큐브를 구현할 수 있다.
 ```
 
 ### 3단계 : Pseudo Code
 
-1. Commend 명령
-    - user input을 Commend 타입 명령으로 해석
-    - ✔ ShiftCommends.java를 CommendUtils.java로 수정
-    - ✔ Commend type에 F, B 추가
-        - CommendUtils의 COMMEND_PATTERN에 추가
-        - Commend enum에 추가
-    - ✔ Commend enum field 변경
+1. command 명령
+    - user input을 command 타입 명령으로 해석
+    - ✔ Shiftcommands.java를 commandUtils.java로 수정
+    - ✔ command type에 F, B 추가
+        - commandUtils의 command_PATTERN에 추가
+        - command enum에 추가
+    - ✔ command enum field 변경
         - sign 삭제
-        - sequence 추가(Commend 별 영향 범위를 나타내는 정보)
+        - sequence 추가(command 별 영향 범위를 나타내는 정보)
 
-2. RubiksCube에서 Commend에 따른 shifting action 수행
+2. RubiksCube에서 command에 따른 shifting action 수행
     - ✔ Cube.java 사용 X → RubiksCube.java 생성
-    - RubiksCube.shifting(Commend c)에서 shift action 수행 후 정보 업데이트
+    - RubiksCube.shifting(command c)에서 shift action 수행 후 정보 업데이트
     - ✔ ShiftString.java 사용
         - RubiksCube.shifting()
         - String 화 하지 않으면, |N| > 1일 때 핸들이 어려워질 수도 있을 듯

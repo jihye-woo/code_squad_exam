@@ -20,26 +20,34 @@ public class Main {
         boolean try_again = true;
         while (try_again) {
             try {
-                // 1. print the cube status
-
-                // 2. get the commend input from the user
-                System.out.println("Commend List : U  L  F  R  B  D");
+                // 2. get the command input from the user
+                System.out.println("command List : U  L  F  R  B  D");
                 System.out.println("               U' L' F' R' B' D'");
+                System.out.println("               RANDOM (Random shuffling)");
+                System.out.println(" Not Case Sensitive ");
                 System.out.print("CUBE > ");
 
-                // 3. split the one line of commend
-                List<String> commends = CommandUtils.splitCommands(br.readLine());
+                // 3. split the one line of command
+                List<String> commands = CommandUtils.splitCommands(br.readLine());
 
-                for(String commend : commends){
-                    if(commend.equals("Q")){
-                        // 4-1. finish the program
-                        try_again = false;
-                        System.out.println("Bye~");
-                        break;
+                for (String command : commands) {
+                    if(command.equals("RANDOM")){
+                        // 4-1. randomized cube
+                        List<String> randomCommands = CommandUtils.randomizeCommands();
+                        for(String randomCommand : randomCommands){
+                            cube.shuffling(randomCommand);
+                        }
+                        cube.print();
+
                     }
-                    // 4-2. execute the commend
-                    System.out.println(commend);
-                    cube.shiftingAndPrint(commend);
+                    else if (command.equals("Q")) {
+                        // 4-2. finish the program
+                        try_again = false;
+                        break;
+                    } else{
+                        // 4-3. shift cube
+                        cube.shufflingAndPrint(command);
+                    }
                 }
 
             } catch (Exception e) {

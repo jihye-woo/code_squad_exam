@@ -18,13 +18,13 @@ public class RubiksCube {
     }
 
     // shift and print
-    public void shiftingAndPrint(String command){
-        shifting(command);
+    public void shufflingAndPrint(String command){
+        shuffling(command);
         print(command);
     }
 
-    // shifting
-    private void shifting(String command) {
+    // shuffling
+    public void shuffling(String command) {
         ShiftInfo info = getShiftInfo(command);
         for (int[] seq : info.getSequences()) {
             ShiftedString shifted = new ShiftedString(getWord(seq));

@@ -14,11 +14,12 @@ public class ShiftedString {
 
     private void setWord(String word) { this.word = word;}
 
+    // only verified information for shifting can be used
     public void shifting(ShiftInfo info) {
         String shifted = shiftAt(info.getN(), info.getDirection());
         setWord(shifted);
     }
-
+    // private, so cannot access directly with raw N and info data
     private String shiftAt(int N, Direction info) {
         if (N == 0) { return word; }
         if (info.equals(Direction.Right)) {

@@ -11,6 +11,8 @@ public class RubiksCube {
 
     private final int NUM_OF_CUBEINFO = 48;
 
+    private int numOfCommand = 0;
+
     public RubiksCube() {
         this.cubeInfo = new char[NUM_OF_CUBEINFO];
         cubeInitializer();
@@ -21,7 +23,7 @@ public class RubiksCube {
     }
 
     // shift and print
-    public void shufflingAndPrint(String command){
+    public void shufflingAndPrint(String command) {
         shuffling(command);
         print(command);
     }
@@ -34,6 +36,7 @@ public class RubiksCube {
             shifted.shifting(info);
             update(shifted.getWord(), seq);
         }
+        countCommand();
     }
 
     // update the cubeInfo
@@ -52,6 +55,14 @@ public class RubiksCube {
         return builder.toString();
     }
 
+    private void countCommand(){
+        numOfCommand++;
+    }
+
+    public int getNumOfCommand(){
+        return numOfCommand;
+    }
+
     // set the cubeInfo
     private void cubeInitializer() {
         setCubeInfo(0, 7, 'B'); // 66
@@ -62,10 +73,34 @@ public class RubiksCube {
         setCubeInfo(40, 47, 'R'); // 82
     }
 
-    private void setCubeInfo(int start, int end, char command) {
+
+    private void setCubeInfo(int start, int end, char color) {
         for (int i = start; i <= end; i++) {
-            cubeInfo[i] = command;
+            cubeInfo[i] = color;
         }
+    }
+
+    public boolean isSolvedAfterShifting(){
+        if(numOfCommand > 0)
+            return allDimensionSolved();
+        return false;
+    }
+    private boolean allDimensionSolved() {
+        return isDimensionSolved(0, 7, 'B')
+                && isDimensionSolved(8, 15, 'W')
+                && isDimensionSolved(16, 23, 'O')
+                && isDimensionSolved(24, 31, 'G')
+                && isDimensionSolved(32, 39, 'Y')
+                && isDimensionSolved(40, 47, 'R');
+    }
+
+    private boolean isDimensionSolved(int start, int end, char color) {
+        for (int i = start; i <= end; i++) {
+            if (cubeInfo[i] != color) {
+                return false;
+            }
+        }
+        return true;
     }
 
     // print the cubeInfo
@@ -92,6 +127,5 @@ public class RubiksCube {
         System.out.format("                    +---------+\n");
 
     }
-
 
 }

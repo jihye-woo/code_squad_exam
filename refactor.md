@@ -20,9 +20,10 @@
         - BufferedReader 대신 안정적인 Scanner
 ### 출력
    - Command 목록 출력
-        - 하드 코딩 대신 enum.values()
+        - ~~하드 코딩 대신 enum.values()~~
+        - ✔ 가독성 문제로 보류
    - ~~StringBuilder 활용~~
-   - 가독성을 위해 format 사용 [[StringBuilder와 format](https://stackoverflow.com/questions/44117788/performance-between-string-format-and-stringbuilder)]
+   - ✔ 가독성을 위해 format 사용 [[StringBuilder와 format](https://stackoverflow.com/questions/44117788/performance-between-string-format-and-stringbuilder)]
 
 ### 클린 코드
    - package 분배
@@ -30,12 +31,12 @@
    - Util 클래스
         - private no-args constructor 설정
         - static 키워드 대신 접근 제어를 default 레벨로 수정하는 방향 고민
-   - directionSwitcher() 가독성
+   - ✔ directionSwitcher() 가독성
         - 삼항 연산자
    - switch statement
         - 객체 지향적으로 전환
         - 조금 더 고민 필요
-   - shifting() 책임 분리
+   - ✔ shifting() 책임 분리
         - print() 기능은 다른 곳에서
    - 변수명 N
         - 좀 더 유의미한 이름으로

@@ -1,6 +1,5 @@
 package exam;
 
-import exam.RubiksCube;
 import exam.utils.CommandUtils;
 import exam.utils.PrintUtils;
 
@@ -23,6 +22,7 @@ public class Main {
         boolean try_again = true;
         while (try_again) {
             try {
+
                 // 2. get the command input from the user
                 PrintUtils.commandPrompt();
 
@@ -30,22 +30,32 @@ public class Main {
                 List<String> commands = CommandUtils.splitCommands(br.readLine());
 
                 for (String command : commands) {
-                    if(command.equals("RANDOM")){
-                        // 4-1. randomized cube
+                    if (command.equals("Q")) {
+                        // 4-1. finish the program
+                        //      if user enter the string "Q"
+                        try_again = false;
+                        break;
+                    }
+                    else if(command.equals("RANDOM")){
+                        // 4-2. randomized cube
                         List<String> randomCommands = CommandUtils.randomizeCommands();
                         for(String randomCommand : randomCommands){
                             cube.shuffling(randomCommand);
                         }
                         cube.print();
-
                     }
-                    else if (command.equals("Q")) {
-                        // 4-2. finish the program
-                        try_again = false;
-                        break;
-                    } else{
+                    else{
                         // 4-3. shift cube
                         cube.shufflingAndPrint(command);
+                    }
+
+                    if (cube.isSolvedAfterShifting()) {
+                        // 5. finish the program
+                        //    if cube is solved
+                        //   ( except the first time )
+                        System.out.println("🎉축하합니다🎉 루빅스 큐브를 맞추셨습니다👍 ");
+                        try_again = false;
+                        break;
                     }
                 }
 
@@ -55,6 +65,8 @@ public class Main {
             }
         }
 
-
+        PrintUtils.elapsedTime(startTime);
+        System.out.format("조작 갯수 : %d %n", cube.getNumOfCommand());
+        System.out.println("이용해주셔서 감사합니다 🙇‍♀️");
     }
 }

@@ -13,7 +13,7 @@ public class ShiftedString {
     private void setWord(String word) { this.word = word;}
 
 //    public void shifting(int N, Direction direction) {
-//        // get N from commend c / get direction from isRight
+//        // get N from command c / get direction from isRight
 //        ShiftInfo info = new ShiftInfo(N, direction, word.length());
 //        String shifted = shiftAt(info.getN(), info.getDirection());
 //        setWord(shifted);

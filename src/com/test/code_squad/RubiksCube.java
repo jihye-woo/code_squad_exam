@@ -18,13 +18,13 @@ public class RubiksCube {
         cubeInitializer(mode);
     }
 
-    public ShiftInfo getShiftInfo(String commend) {
-        return new ShiftInfo(commend);
+    public ShiftInfo getShiftInfo(String command) {
+        return new ShiftInfo(command);
     }
 
     // shifting
-    public void shifting(String commend) {
-        ShiftInfo info = getShiftInfo(commend);
+    public void shifting(String command) {
+        ShiftInfo info = getShiftInfo(command);
         for (int[] seq : info.getSequences()) {
             ShiftedString shifted = new ShiftedString(getWord(seq));
             shifted.shifting(info);

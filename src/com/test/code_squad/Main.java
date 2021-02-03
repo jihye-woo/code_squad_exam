@@ -16,24 +16,24 @@ public class Main {
             try {
                 // 1. print the cube status
 
-                // 2. get the commend input from the user
+                // 2. get the command input from the user
                 System.out.println("Commend List : U  L  F  R  B  D");
                 System.out.println("               U' L' F' R' B' D'");
                 System.out.print("CUBE > ");
 
-                // 3. split the one line of commend
-                List<String> commends = CommendUtils.splitCommends(br.readLine());
+                // 3. split the one line of command
+                List<String> commands = CommandUtils.splitCommends(br.readLine());
 
-                for(String commend : commends){
-                    if(commend.equals("Q")){
+                for(String command : commands){
+                    if(command.equals("Q")){
                         // 4-1. finish the program
                         try_again = false;
                         System.out.println("Bye~");
                         break;
                     }
-                    // 4-2. execute the commend
-                    System.out.println(commend);
-                    cube.shifting(commend);
+                    // 4-2. execute the command
+                    System.out.println(command);
+                    cube.shifting(command);
                 }
 
             } catch (Exception e) {

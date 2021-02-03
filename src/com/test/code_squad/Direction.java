@@ -11,6 +11,6 @@ public enum Direction {
         }
     }
 
-    static Direction is(String commend) { return (commend.contains("'")) ? Direction.Left : Direction.Right; }
+    static Direction is(String command) { return (command.contains("'")) ? Direction.Left : Direction.Right; }
 }
 

@@ -1,6 +1,6 @@
 package com.test.code_squad;
 
-public enum Commend {
+public enum Command {
     U, R, L, B, F, D;
 
     private int[][] sequences;
@@ -18,8 +18,8 @@ public enum Commend {
         U.sign = -1;
     }
 
-    static Commend is(String commend) {
-        switch (commend) {
+    static Command is(String command) {
+        switch (command) {
             case "U": case "U'":
                 return U;
             case "R": case "R'":
@@ -33,7 +33,7 @@ public enum Commend {
             case "D": case "D'":
                 return D;
             default:
-                throw new IllegalArgumentException("Unexpected commend value: " + commend);
+                throw new IllegalArgumentException("Unexpected command value: " + command);
         }
     }
 
